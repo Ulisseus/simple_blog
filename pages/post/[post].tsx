@@ -32,7 +32,7 @@ const Foobar: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("https://simple-blog-api.crew.red/posts")
+      .get(process.env["NEXT_PUBLIC_API"] as string)
       .then((res) => {
         dispatch(add(res.data));
         setStatus("finished");

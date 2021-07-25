@@ -31,7 +31,7 @@ const CreatePost: React.FC = () => {
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post("https://simple-blog-api.crew.red/posts", {
+      .post(process.env["NEXT_PUBLIC_API"] as string, {
         title,
         body: message,
       })

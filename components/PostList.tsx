@@ -19,12 +19,12 @@ const StyledPosts = styled.div`
     grid-column: span 2;
     grid-row: span 2;
     height: 100%;
-  };
-  & > div:nth-child(2n+1) {
+  }
+  & > div:nth-child(2n + 1) {
     grid-column: span 1;
     grid-row: span 2;
     height: 100%;
-  };
+  }
 `;
 
 const PostList: React.FC = () => {
@@ -34,10 +34,9 @@ const PostList: React.FC = () => {
       return p.title && p.body;
     })
     .sort((a, b) => b.id - a.id);
-  console.log(posts, "posts");
   useEffect(() => {
     axios
-      .get("https://simple-blog-api.crew.red/posts")
+      .get(process.env["NEXT_PUBLIC_API"] as string)
       .then((res) => dispatch(add(res.data)));
   }, []);
   return (
