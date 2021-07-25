@@ -4,13 +4,19 @@ import { useRouter } from "next/router";
 import Post from "../../components/Post";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
-import { useStore } from "react-redux";
 import { add } from "../../features/posts/postsSlice";
 import axios from "axios";
 
 const StyledPost = styled.div`
   margin: auto;
 `;
+
+const StyledMessage = styled.h1`
+  margin: auto;
+`;
+const Message: React.FC<{ message: string }> = ({ message }) => (
+  <StyledMessage>{message}</StyledMessage>
+);
 
 const Foobar: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +37,7 @@ const Foobar: React.FC = () => {
         dispatch(add(res.data));
         setStatus("finished");
       })
-      .catch((e) => {
+      .catch(() => {
         setStatus("error");
       });
   }, []);
@@ -39,9 +45,9 @@ const Foobar: React.FC = () => {
   return (
     <Layout>
       {status === "loading" ? (
-        "Loading..."
+        <Message message="Loading..." />
       ) : status === "error" ? (
-        "Error"
+        <Message message="Error while fetching data from the server ;(" />
       ) : (
         <StyledPost>
           <Post post={post} />
