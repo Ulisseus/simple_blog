@@ -48,7 +48,7 @@ export const NavBar: React.FC = () => {
       <h1 onClick={() => router.push("/")}>A simple blog</h1>
       <ul>
         <NavButton onClick={() => router.push("/")}>Posts</NavButton>
-        <NavButton onClick={() => router.push("/post/new")}>
+        <NavButton onClick={() => router.push("/posts/new")}>
           Create Post
         </NavButton>
       </ul>

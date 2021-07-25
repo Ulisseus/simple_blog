@@ -30,7 +30,7 @@ const PostBody = styled.section`
 const Post: React.FC<{ post: PostType }> = ({ post }) => {
   const router = useRouter();
   return (
-    <StyledPost onClick={() => router.push(`/post/${post.id}`)}>
+    <StyledPost onClick={() => router.push(`/posts/${post.id}`)}>
       <PostTitle>{post.title}</PostTitle>
       <PostBody>{post.body}</PostBody>
     </StyledPost>
