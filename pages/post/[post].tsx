@@ -2,6 +2,7 @@ import React from "react";
 import { useAppSelector } from "../../hooks/hooks";
 import { useRouter } from "next/router";
 import Post from "../../components/Post";
+import Layout from "../../components/Layout";
 
 const Foobar: React.FC = () => {
   const posts = useAppSelector((state) => state.posts.value);
@@ -14,7 +15,11 @@ const Foobar: React.FC = () => {
     return p.id === id;
   })[0];
 
-  return <Post post={post} />;
+  return (
+    <Layout>
+      <Post post={post} />
+    </Layout>
+  );
 };
 
 export default Foobar;
