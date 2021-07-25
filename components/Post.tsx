@@ -9,7 +9,7 @@ const StyledPost = styled.div`
   text-align: center;
   margin: auto;
   background-color: white;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
   margin: 1em 2em;
 `;
 
