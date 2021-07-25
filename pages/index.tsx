@@ -3,6 +3,9 @@ import styled, { css } from "styled-components";
 import { posts } from "../testData/posts";
 import { Post as PostType } from "../types/post";
 import PostComponent from "../components/Post";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { useEffect } from "react";
+import { add } from "../features/posts/postsSlice";
 
 const NavBar: React.FC = () => {
   return (
@@ -41,6 +44,11 @@ export default function Home() {
   // axios
   //.get("https://simple-blog-api.crew.red/posts")
   //.then((res) => console.log(res.data));
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(add(posts as PostType[]));
+  }, []);
+
   return (
     <Layout>
       <NavBar />

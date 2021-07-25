@@ -14,8 +14,8 @@ export const postSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<PostType>) => {
-      [...state.value, action.payload];
+    add: (state, action: PayloadAction<PostType[]>) => {
+      state.value = action.payload;
     },
   },
 });
