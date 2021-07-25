@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const StyledNav = styled.nav`
   padding: 0.5em 3em;
@@ -35,12 +36,15 @@ const NavButton = styled.li`
 `;
 
 const NavBar: React.FC = () => {
+  const router = useRouter();
   return (
     <StyledNav>
       <h1>A simple blog</h1>
       <ul>
-        <NavButton>Posts</NavButton>
-        <NavButton>Create Post</NavButton>
+        <NavButton onClick={() => router.push("/")}>Posts</NavButton>
+        <NavButton onClick={() => router.push("/post/new")}>
+          Create Post
+        </NavButton>
       </ul>
     </StyledNav>
   );
