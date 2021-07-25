@@ -32,9 +32,9 @@ const Layout = styled.div`
 `;
 
 export default function Home() {
-  //axios
-  //.get("https://simple-blog-api.crew.red/posts")
-  //.then((res) => console.log(res));
+  axios
+    .get("https://simple-blog-api.crew.red/posts")
+    .then((res) => console.log(res.data));
   return (
     <Layout>
       <NavBar />
