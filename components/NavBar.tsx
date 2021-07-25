@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  border-bottom: 1px solid gainsboro;
+  border-bottom: 1px solid black;
   & > h1 {
     font-family: "ultra";
     font-size: 3rem;
