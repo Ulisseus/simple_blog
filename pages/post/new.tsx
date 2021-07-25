@@ -47,7 +47,7 @@ const CreatePost: React.FC = () => {
   return (
     <Layout>
       <StyledForm onSubmit={submitForm}>
-        <h1>{error && "Error sending message..."}</h1>
+        {error && <h1>{"Error sending message..."}</h1>}
         <h1>Create post</h1>
         <FormTitle setTitle={setTitle} title={title} />
         <FormArea setMessage={setMessage} message={message} />
