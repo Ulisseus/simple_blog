@@ -10,6 +10,7 @@ const StyledPosts = styled.div`
   background-color: gainsboro;
   display: grid;
   grid-template-columns: repeat(auto-fill, 400px);
+  width: 100%;
   align-items: center;
   justify-content: center;
   padding: 1em 2em;
