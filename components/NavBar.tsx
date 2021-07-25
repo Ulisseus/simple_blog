@@ -18,6 +18,9 @@ const StyledNav = styled.nav`
       font-display: swap;
     }
   }
+  & > h1 {
+    cursor: pointer;
+  }
   & > ul {
     margin-left: auto;
   }
@@ -40,7 +43,7 @@ export const NavBar: React.FC = () => {
   const router = useRouter();
   return (
     <StyledNav>
-      <h1>A simple blog</h1>
+      <h1 onClick={() => router.push("/")}>A simple blog</h1>
       <ul>
         <NavButton onClick={() => router.push("/")}>Posts</NavButton>
         <NavButton onClick={() => router.push("/post/new")}>
