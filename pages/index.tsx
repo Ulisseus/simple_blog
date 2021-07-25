@@ -1,31 +1,35 @@
-import styled from "styled-components";
 import PostList from "../components/PostList";
 import Layout from "../components/Layout";
+import axios from "axios";
+import { useAppDispatch } from "../hooks/hooks";
+import { Post } from "../types/post";
+import { add } from "../features/posts/postsSlice";
 
-const NavBar: React.FC = () => {
-  return (
-    <nav>
-      <h1>A simple blog</h1>
-    </nav>
-  );
-};
-
-const Footer: React.FC = () => {
-  return <footer>2021</footer>;
-};
-
-export default function Home() {
-  // axios
-  //.get("https://simple-blog-api.crew.red/posts")
-  //.then((res) => console.log(res.data));
-  //const dispatch = useAppDispatch();
-  //useEffect(() => {
-  //dispatch(add(posts as PostType[]));
-  //}, []);
-
+const App: React.FC<{ posts: any }> = ({ posts }) => {
+  const dispatch = useAppDispatch();
+  dispatch(add(posts as Post[]));
   return (
     <Layout>
       <PostList />
     </Layout>
   );
-}
+};
+
+export default App;
+
+const TEN_MINUTES = 60 * 10;
+
+export const getStaticProps = async () => {
+  const posts: any = await axios
+    .get(process.env["NEXT_PUBLIC_API"] as string)
+    .then((r) => r.data)
+    .catch((e: Error) => {
+      throw new Error(`Error while fetching data...\n${e.message}`);
+    });
+  return {
+    props: {
+      posts,
+    },
+    revalidate: TEN_MINUTES,
+  };
+};
