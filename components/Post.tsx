@@ -13,6 +13,7 @@ const StyledPost = styled.div`
   border: 1px solid black;
   margin: 1em 2em;
   cursor: pointer;
+  border-radius: 3px;
 `;
 
 const PostTitle = styled.b`

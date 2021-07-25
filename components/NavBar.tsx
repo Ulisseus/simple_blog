@@ -38,7 +38,7 @@ const StyledNav = styled.nav`
 const NavButton = styled.li`
   font-weight: bold;
   font-size: 1.5rem;
-  margin: 0 1em;
+  margin: 0.5em 1em;
 `;
 
 export const NavBar: React.FC = () => {
