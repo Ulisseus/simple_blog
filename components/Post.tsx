@@ -1,7 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import { Post } from "../types/post";
+import { Post as PostType } from "../types/post";
 
-const Post: React.FC<{ post: Post }> = ({ post }) => {
-  return <div>Post</div>;
+const Post: React.FC<{ post: PostType }> = ({ post }) => {
+  return (
+    <div>
+      <b>{post.title}</b>
+      <section>{post.body}</section>
+    </div>
+  );
 };
+
+export default Post;
