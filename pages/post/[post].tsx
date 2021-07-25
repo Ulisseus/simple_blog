@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import { useRouter } from "next/router";
 import Post from "../../components/Post";
+import { Message } from "../../components/Message";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
 import { add } from "../../features/posts/postsSlice";
@@ -11,14 +12,7 @@ const StyledPost = styled.div`
   margin: auto;
 `;
 
-const StyledMessage = styled.h1`
-  margin: auto;
-`;
-const Message: React.FC<{ message: string }> = ({ message }) => (
-  <StyledMessage>{message}</StyledMessage>
-);
-
-const Foobar: React.FC = () => {
+const PostPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const [status, setStatus] = useState<"loading" | "error" | "finished">(
     "loading"
@@ -57,4 +51,4 @@ const Foobar: React.FC = () => {
   );
 };
 
-export default Foobar;
+export default PostPage;
