@@ -25,6 +25,10 @@ const StyledPosts = styled.div`
     grid-row: span 2;
     height: 100%;
   }
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const PostList: React.FC = () => {

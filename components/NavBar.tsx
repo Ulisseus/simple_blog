@@ -6,6 +6,7 @@ const StyledNav = styled.nav`
   padding: 0.5em 3em;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   border-bottom: 1px solid gainsboro;
   & > h1 {
     font-family: "ultra";
@@ -23,6 +24,7 @@ const StyledNav = styled.nav`
   }
   & > ul {
     margin-left: auto;
+    white-space: nowrap;
   }
   & > ul > li {
     display: inline;
