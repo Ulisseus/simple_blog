@@ -16,7 +16,10 @@ const StyledPosts = styled.main`
 
 const PostList: React.FC = () => {
   const dispatch = useAppDispatch();
-  const posts = useAppSelector((state) => state.posts.value);
+  const posts = useAppSelector((state) => state.posts.value).filter(p=>{
+	  return p.title&&p.body
+  }).sort((a,b)=>b.id-a.id);
+  console.log(posts,'posts')
   useEffect(() => {
     axios
       .get("https://simple-blog-api.crew.red/posts")
