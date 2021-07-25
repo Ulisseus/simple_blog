@@ -6,6 +6,7 @@ const StyledNav = styled.nav`
   padding: 0.5em 3em;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid gainsboro;
   & > h1 {
     font-family: "ultra";
     font-size: 3rem;
@@ -62,6 +63,7 @@ const StyledLayout = styled.div`
 
 const StyledChildren = styled.main`
   flex-grow: 1;
+  display: flex;
 `;
 
 const Layout: React.FC = ({ children }) => {

@@ -1,6 +1,28 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Layout from "../../components/Layout";
+import FormTitle from "../../components/FormTitle";
+import FormArea from "../../components/FormArea";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  & > * {
+    width: 50%;
+    margin-top: 1em;
+  }
+`;
+
+const StyledSubmit = styled.input`
+  min-height: 2rem;
+  font-size: 1.3rem;
+  color: #666666;
+`;
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -18,23 +40,12 @@ const CreatePost: React.FC = () => {
   };
   return (
     <Layout>
-      <form onSubmit={submitForm}>
+      <StyledForm onSubmit={submitForm}>
         <h1>Create post</h1>
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-        />
-        <label htmlFor="body">Message</label>
-        <textarea
-          id="body"
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
-        />
-        <input type="submit" value="Submit" />
-      </form>
+        <FormTitle setTitle={setTitle} title={title} />
+        <FormArea setMessage={setMessage} message={message} />
+        <StyledSubmit type="submit" value="Submit" />
+      </StyledForm>
     </Layout>
   );
 };
