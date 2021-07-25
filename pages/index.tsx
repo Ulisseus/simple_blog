@@ -6,6 +6,7 @@ import PostComponent from "../components/Post";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { useEffect } from "react";
 import { add } from "../features/posts/postsSlice";
+import PostList from "../components/PostList";
 
 const NavBar: React.FC = () => {
   return (
@@ -25,6 +26,13 @@ const Footer: React.FC = () => {
 };
 
 const Posts: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const posts = useAppSelector((state) => state.posts.value);
+  useEffect(() => {
+    axios
+      .get("https://simple-blog-api.crew.red/posts")
+      .then((res) => dispatch(add(res.data)));
+  }, []);
   return (
     <StyledPosts>
       {posts.map((p) => {
@@ -44,15 +52,15 @@ export default function Home() {
   // axios
   //.get("https://simple-blog-api.crew.red/posts")
   //.then((res) => console.log(res.data));
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(add(posts as PostType[]));
-  }, []);
+  //const dispatch = useAppDispatch();
+  //useEffect(() => {
+  //dispatch(add(posts as PostType[]));
+  //}, []);
 
   return (
     <Layout>
       <NavBar />
-      <Posts />
+      <PostList />
       <Footer />
     </Layout>
   );
