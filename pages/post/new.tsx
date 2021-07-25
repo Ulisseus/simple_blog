@@ -26,21 +26,28 @@ const StyledSubmit = styled.input`
 
 const CreatePost: React.FC = () => {
   const [title, setTitle] = useState("");
+  const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //axios.post()
-    const data = {
-      title,
-      body: message,
-    };
-    axios.post("https://simple-blog-api.crew.red/posts", data);
-    setTitle("");
-    setMessage("");
+    axios
+      .post("https://simple-blog-api.crew.red/posts", {
+        title,
+        body: message,
+      })
+      .then(() => {
+        setTitle("");
+        setMessage("");
+        setError(false);
+      })
+      .catch(() => {
+        setError(true);
+      });
   };
   return (
     <Layout>
       <StyledForm onSubmit={submitForm}>
+        <h1>{error && "Error sending message..."}</h1>
         <h1>Create post</h1>
         <FormTitle setTitle={setTitle} title={title} />
         <FormArea setMessage={setMessage} message={message} />

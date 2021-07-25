@@ -14,7 +14,9 @@ const StyledPost = styled.div`
 
 const Foobar: React.FC = () => {
   const dispatch = useAppDispatch();
-  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState<"loading" | "error" | "finished">(
+    "loading"
+  );
   const posts = useAppSelector((state) => state.posts.value);
   const router = useRouter();
   const id = Number.parseInt(router.query.post as string);
@@ -23,16 +25,23 @@ const Foobar: React.FC = () => {
   })[0];
 
   useEffect(() => {
-    axios.get("https://simple-blog-api.crew.red/posts").then((res) => {
-      dispatch(add(res.data));
-      setLoading(false);
-    });
+    axios
+      .get("https://simple-blog-api.crew.red/posts")
+      .then((res) => {
+        dispatch(add(res.data));
+        setStatus("finished");
+      })
+      .catch((e) => {
+        setStatus("error");
+      });
   }, []);
 
   return (
     <Layout>
-      {loading ? (
+      {status === "loading" ? (
         "Loading..."
+      ) : status === "error" ? (
+        "Error"
       ) : (
         <StyledPost>
           <Post post={post} />
