@@ -7,8 +7,11 @@ import { Post as PostType } from "../types/post";
 import PostComponent from "./Post";
 
 const StyledPosts = styled.main`
-  flex-grow: 1;
   background-color: gainsboro;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  align-items: center;
+  justify-content: center;
 `;
 
 const PostList: React.FC = () => {
@@ -28,4 +31,4 @@ const PostList: React.FC = () => {
   );
 };
 
-export default PostList
+export default PostList;

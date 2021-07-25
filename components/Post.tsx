@@ -10,6 +10,7 @@ const StyledPost = styled.div`
   margin: auto;
   background-color: white;
   border-bottom: 1px solid black;
+  margin: 1em 2em;
 `;
 
 const Post: React.FC<{ post: PostType }> = ({ post }) => {
