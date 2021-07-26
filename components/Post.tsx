@@ -24,6 +24,9 @@ const StyledPost = styled.div`
     grid-row: span 2;
     height: 100%;
   }
+  @media (max-width: 650px) {
+    align-self: stretch;
+  }
 `;
 
 const PostTitle = styled.b`
