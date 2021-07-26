@@ -9,8 +9,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <GlobalStyle />
-      <meta name="title" content="A simple blog" />
-      <title key="title">A simple blog</title>
+      <Head>
+        <meta name="title" content="A simple blog" />
+        <title key="title">A simple blog</title>
+      </Head>
       <Component {...pageProps} />
     </Provider>
   );
