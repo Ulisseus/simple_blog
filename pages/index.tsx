@@ -7,6 +7,7 @@ import { add } from "../features/posts/postsSlice";
 
 const App: React.FC<{ posts: any }> = ({ posts }) => {
   const dispatch = useAppDispatch();
+  //TO-DO implement proper Post data validation
   dispatch(add(posts as Post[]));
   return (
     <Layout>
