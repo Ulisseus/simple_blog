@@ -15,16 +15,6 @@ const StyledPosts = styled.div`
   justify-content: center;
   padding: 1em 2em;
   grid-gap: 1em;
-  & > div:nth-child(5n) {
-    grid-column: span 2;
-    grid-row: span 2;
-    height: 100%;
-  }
-  & > div:nth-child(2n + 1) {
-    grid-column: span 1;
-    grid-row: span 2;
-    height: 100%;
-  }
   @media (max-width: 650px) {
     display: flex;
     flex-direction: column;

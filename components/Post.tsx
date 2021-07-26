@@ -14,6 +14,16 @@ const StyledPost = styled.div`
   margin: 1em 2em;
   cursor: pointer;
   border-radius: 3px;
+  &:nth-child(5n) {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 100%;
+  }
+  &:nth-child(2n + 1) {
+    grid-column: span 1;
+    grid-row: span 2;
+    height: 100%;
+  }
 `;
 
 const PostTitle = styled.b`
