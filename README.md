@@ -2,7 +2,7 @@
 
 A very basic blog hacked together in one day.
 
-- [**Preview**](simple-blog-theta.vercel.app)
+- [**Preview**](https://simple-blog-theta.vercel.app/)
 
 ![alt text](./public/layout.png)
 
